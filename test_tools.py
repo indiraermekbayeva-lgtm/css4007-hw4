@@ -33,3 +33,14 @@ def test_archived_not_used():
 @pytest.mark.parametrize('district,field', [('Unknown','area'), ('Brightwater','unknown'), (123,'area'), ('','area')])
 def test_lookup_reject(district,field):
     assert 'error' in lookup(district,field)
+def test_calculate_required_number():
+    assert calculate('48317 * 1.0947')['result'] == pytest.approx(52892.6199)
+
+
+def test_similar_district_names():
+    assert lookup('Ossbridge', 'population')['value'] == 52904
+    assert lookup('Ossford', 'population')['value'] == 30982
+
+
+def test_misspelled_district():
+    assert 'error' in lookup('Ossbrdge', 'population')

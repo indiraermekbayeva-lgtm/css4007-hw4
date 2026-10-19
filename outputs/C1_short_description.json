@@ -1,0 +1,698 @@
+[
+  {
+    "id": "Q-01",
+    "gold": {
+      "answer": "Ossbridge",
+      "value": 4.6,
+      "decimals": 1
+    },
+    "prediction": {
+      "answer": "Ossford",
+      "value": null,
+      "unit": "residents per square kilometre",
+      "sources": [
+        "NR-01",
+        "NR-02"
+      ],
+      "reason": "Ossford's 2025 population is available, but Ossbridge's 2025 population is missing, so the density difference cannot be calculated."
+    },
+    "raw_answer": "{\"answer\":\"Ossford\",\"value\":null,\"unit\":\"residents per square kilometre\",\"sources\":[\"NR-01\",\"NR-02\"],\"reason\":\"Ossford's 2025 population is available, but Ossbridge's 2025 population is missing, so the density difference cannot be calculated.\"}",
+    "usage": {
+      "input_tokens": 2958,
+      "output_tokens": 309,
+      "total_tokens": 3267
+    },
+    "seconds": 8.754,
+    "trace": [
+      {
+        "turn": 1,
+        "usage": {
+          "input_tokens": 311,
+          "output_tokens": 63,
+          "total_tokens": 374
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_Fs6f3M1E1wJLS29EddBR6GHu",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"2025 population density\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 population density"
+            }
+          },
+          {
+            "id": "call_vBnHsERLAoZMUBcOWmj2zgFn",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossford\", \"field\": \"2025 population density\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 population density"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "usage": {
+          "input_tokens": 423,
+          "output_tokens": 99,
+          "total_tokens": 522
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_Ipc1dOoAft7NjEdbm0HZowyk",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"2025 population\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 population"
+            }
+          },
+          {
+            "id": "call_AIwNmD6HQqNCjWRwT44NEtAg",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"area\"}",
+            "result": {
+              "district": "Ossbridge",
+              "field": "area",
+              "value": 1284.6,
+              "unit": "km2",
+              "source": "NR-01"
+            }
+          },
+          {
+            "id": "call_4aPNnT9MhDXoJsybHMBoqCmf",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossford\", \"field\": \"2025 population\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 population"
+            }
+          },
+          {
+            "id": "call_6u0i1HYZev9GkXY0oecSwwao",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossford\", \"field\": \"area\"}",
+            "result": {
+              "district": "Ossford",
+              "field": "area",
+              "value": 846.2,
+              "unit": "km2",
+              "source": "NR-02"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "usage": {
+          "input_tokens": 644,
+          "output_tokens": 57,
+          "total_tokens": 701
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0f7N0s2kVBzSW6odaK6KvnUz",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"population\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "population"
+            }
+          },
+          {
+            "id": "call_Hw48A2GNAIqwzaxAgS27CQNX",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossford\", \"field\": \"population\"}",
+            "result": {
+              "district": "Ossford",
+              "field": "population",
+              "value": 30982,
+              "unit": "residents",
+              "source": "NR-02"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "usage": {
+          "input_tokens": 766,
+          "output_tokens": 23,
+          "total_tokens": 789
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0rozZ7ljh5uO0NcWteOuNbWy",
+            "name": "lookup",
+            "arguments": "{\"district\":\"Ossbridge\",\"field\":\"residents\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "residents"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "usage": {
+          "input_tokens": 814,
+          "output_tokens": 67,
+          "total_tokens": 881
+        },
+        "content": "{\"answer\":\"Ossford\",\"value\":null,\"unit\":\"residents per square kilometre\",\"sources\":[\"NR-01\",\"NR-02\"],\"reason\":\"Ossford's 2025 population is available, but Ossbridge's 2025 population is missing, so the density difference cannot be calculated.\"}",
+        "tool_calls": []
+      }
+    ],
+    "strategy": "S3"
+  },
+  {
+    "id": "Q-04",
+    "gold": {
+      "answer": "Millbrook",
+      "value": 2.59,
+      "decimals": 2
+    },
+    "prediction": {
+      "answer": "no",
+      "value": 0,
+      "unit": "pupils per school",
+      "sources": [],
+      "reason": "The 2025/26 pupil and school counts for Ashgrove and Millbrook could not be found in the provided corpus."
+    },
+    "raw_answer": "{\"answer\":\"no\",\"value\":0,\"unit\":\"pupils per school\",\"sources\":[],\"reason\":\"The 2025/26 pupil and school counts for Ashgrove and Millbrook could not be found in the provided corpus.\"}",
+    "usage": {
+      "input_tokens": 1354,
+      "output_tokens": 217,
+      "total_tokens": 1571
+    },
+    "seconds": 4.118,
+    "trace": [
+      {
+        "turn": 1,
+        "usage": {
+          "input_tokens": 312,
+          "output_tokens": 68,
+          "total_tokens": 380
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_flhKYYDCHl5bl4YtndvMq4bO",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ashgrove\", \"field\": \"2025/26 pupils and schools\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025/26 pupils and schools"
+            }
+          },
+          {
+            "id": "call_j6h2p5aVFVySTxnC6Dgvt9c8",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"2025/26 pupils and schools\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025/26 pupils and schools"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "usage": {
+          "input_tokens": 435,
+          "output_tokens": 97,
+          "total_tokens": 532
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_ZsgyWPxzZVB5TF7I9278f0lf",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ashgrove\", \"field\": \"pupils\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "pupils"
+            }
+          },
+          {
+            "id": "call_CymgmqbjLh3BQDBcCIBZ1qyE",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ashgrove\", \"field\": \"schools\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "schools"
+            }
+          },
+          {
+            "id": "call_kDazjz6kaz0T7e8da8wzXCPm",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"pupils\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "pupils"
+            }
+          },
+          {
+            "id": "call_azsLSOUmfjoR2VZBaJR4ojNN",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"schools\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "schools"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "usage": {
+          "input_tokens": 607,
+          "output_tokens": 52,
+          "total_tokens": 659
+        },
+        "content": "{\"answer\":\"no\",\"value\":0,\"unit\":\"pupils per school\",\"sources\":[],\"reason\":\"The 2025/26 pupil and school counts for Ashgrove and Millbrook could not be found in the provided corpus.\"}",
+        "tool_calls": []
+      }
+    ],
+    "strategy": "S3"
+  },
+  {
+    "id": "Q-08",
+    "gold": {
+      "answer": "Brightwater",
+      "value": 72.46,
+      "decimals": 2
+    },
+    "prediction": {
+      "answer": "no",
+      "value": 0,
+      "unit": "million tenge",
+      "sources": [],
+      "reason": "The provided 2025 corpus does not contain the household water tariffs or household water-use figures for Brightwater and Millbrook, so the comparison cannot be determined."
+    },
+    "raw_answer": "{\"answer\":\"no\",\"value\":0,\"unit\":\"million tenge\",\"sources\":[],\"reason\":\"The provided 2025 corpus does not contain the household water tariffs or household water-use figures for Brightwater and Millbrook, so the comparison cannot be determined.\"}",
+    "usage": {
+      "input_tokens": 1427,
+      "output_tokens": 240,
+      "total_tokens": 1667
+    },
+    "seconds": 4.283,
+    "trace": [
+      {
+        "turn": 1,
+        "usage": {
+          "input_tokens": 319,
+          "output_tokens": 73,
+          "total_tokens": 392
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_3w6ZWmwk3FDOponSVLA244XT",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"2025 household water tariff and households/consumption\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 household water tariff and households/consumption"
+            }
+          },
+          {
+            "id": "call_Hw1YayYxFi8eR4hbnG7Dv0MF",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"2025 household water tariff and households/consumption\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 household water tariff and households/consumption"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "usage": {
+          "input_tokens": 453,
+          "output_tokens": 111,
+          "total_tokens": 564
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_oBydVRk2AXcXJTWKLFtHLlJB",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"2025 household water tariff\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 household water tariff"
+            }
+          },
+          {
+            "id": "call_3cta2JHcWsf8sLTiFlsr1l39",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"household water consumption 2025\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "household water consumption 2025"
+            }
+          },
+          {
+            "id": "call_EdQIDTt1c37trgW7ZkI5mj8M",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"2025 household water tariff\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 household water tariff"
+            }
+          },
+          {
+            "id": "call_q9XE9CdJJnaJioFvnoXXMwOY",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"household water consumption 2025\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "household water consumption 2025"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "usage": {
+          "input_tokens": 655,
+          "output_tokens": 56,
+          "total_tokens": 711
+        },
+        "content": "{\"answer\":\"no\",\"value\":0,\"unit\":\"million tenge\",\"sources\":[],\"reason\":\"The provided 2025 corpus does not contain the household water tariffs or household water-use figures for Brightwater and Millbrook, so the comparison cannot be determined.\"}",
+        "tool_calls": []
+      }
+    ],
+    "strategy": "S3"
+  },
+  {
+    "id": "Q-09",
+    "gold": {
+      "answer": "Millbrook",
+      "value": 0.6,
+      "decimals": 1
+    },
+    "prediction": {
+      "answer": "Millbrook",
+      "value": 0.5556561156405735,
+      "unit": "residents per square kilometre",
+      "sources": [
+        "NR-05",
+        "NR-16",
+        "NR-11"
+      ],
+      "reason": "Millbrook's density is 49.041655681518584 residents/km², compared with Brightwater's 48.48599956587801 residents/km², a difference of 0.5556561156405735."
+    },
+    "raw_answer": "{\"answer\":\"Millbrook\",\"value\":0.5556561156405735,\"unit\":\"residents per square kilometre\",\"sources\":[\"NR-05\",\"NR-16\",\"NR-11\"],\"reason\":\"Millbrook's density is 49.041655681518584 residents/km², compared with Brightwater's 48.48599956587801 residents/km², a difference of 0.5556561156405735.\"}",
+    "usage": {
+      "input_tokens": 2992,
+      "output_tokens": 331,
+      "total_tokens": 3323
+    },
+    "seconds": 6.088,
+    "trace": [
+      {
+        "turn": 1,
+        "usage": {
+          "input_tokens": 311,
+          "output_tokens": 63,
+          "total_tokens": 374
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_hEa2fj8hnnbEl6C2cQbaajPK",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"2025 population and area\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 population and area"
+            }
+          },
+          {
+            "id": "call_kDpW9Cm7JVGs4cZa8fm0Vgrj",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"2025 population and area\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 population and area"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "usage": {
+          "input_tokens": 425,
+          "output_tokens": 91,
+          "total_tokens": 516
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_sQtYMVPczO1yYjUPdbZeC25E",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"population\"}",
+            "result": {
+              "district": "Brightwater",
+              "field": "population",
+              "value": 44675,
+              "unit": "residents",
+              "source": "NR-05"
+            }
+          },
+          {
+            "id": "call_8PRdSptugEVUJTr9iK1Orj1m",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Brightwater\", \"field\": \"area\"}",
+            "result": {
+              "district": "Brightwater",
+              "field": "area",
+              "value": 921.4,
+              "unit": "km2",
+              "source": "NR-16"
+            }
+          },
+          {
+            "id": "call_V173adxsBKjVyCMAulqGs4ZV",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"population\"}",
+            "result": {
+              "district": "Millbrook",
+              "field": "population",
+              "value": 37203,
+              "unit": "residents",
+              "source": "NR-11"
+            }
+          },
+          {
+            "id": "call_xNPz5so4YxUiPHOlmhMMZ2ja",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Millbrook\", \"field\": \"area\"}",
+            "result": {
+              "district": "Millbrook",
+              "field": "area",
+              "value": 758.6,
+              "unit": "km2",
+              "source": "NR-11"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "usage": {
+          "input_tokens": 673,
+          "output_tokens": 55,
+          "total_tokens": 728
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_368rN8kFtXtHD0OrfKdVDx9i",
+            "name": "calculate",
+            "arguments": "{\"expression\": \"44675/921.4\"}",
+            "result": {
+              "result": 48.48599956587801
+            }
+          },
+          {
+            "id": "call_TdNGYHgg001tYSwqWt5CNARM",
+            "name": "calculate",
+            "arguments": "{\"expression\": \"37203/758.6\"}",
+            "result": {
+              "result": 49.041655681518584
+            }
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "usage": {
+          "input_tokens": 766,
+          "output_tokens": 28,
+          "total_tokens": 794
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_b9h7fft2NrmzZSyITOIDzYSR",
+            "name": "calculate",
+            "arguments": "{\"expression\":\"37203/758.6-44675/921.4\"}",
+            "result": {
+              "result": 0.5556561156405735
+            }
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "usage": {
+          "input_tokens": 817,
+          "output_tokens": 94,
+          "total_tokens": 911
+        },
+        "content": "{\"answer\":\"Millbrook\",\"value\":0.5556561156405735,\"unit\":\"residents per square kilometre\",\"sources\":[\"NR-05\",\"NR-16\",\"NR-11\"],\"reason\":\"Millbrook's density is 49.041655681518584 residents/km², compared with Brightwater's 48.48599956587801 residents/km², a difference of 0.5556561156405735.\"}",
+        "tool_calls": []
+      }
+    ],
+    "strategy": "S3"
+  },
+  {
+    "id": "Q-17",
+    "gold": {
+      "answer": "Harrowfield",
+      "value": 884,
+      "decimals": 0
+    },
+    "prediction": {
+      "answer": "no",
+      "value": 0,
+      "unit": "tenge per resident",
+      "sources": [],
+      "reason": "The provided 2025 corpus contains no retrievable data for the household water tariffs, resident counts, or household water consumption of Harrowfield or Ossbridge."
+    },
+    "raw_answer": "{\"answer\":\"no\",\"value\":0,\"unit\":\"tenge per resident\",\"sources\":[],\"reason\":\"The provided 2025 corpus contains no retrievable data for the household water tariffs, resident counts, or household water consumption of Harrowfield or Ossbridge.\"}",
+    "usage": {
+      "input_tokens": 1569,
+      "output_tokens": 295,
+      "total_tokens": 1864
+    },
+    "seconds": 4.165,
+    "trace": [
+      {
+        "turn": 1,
+        "usage": {
+          "input_tokens": 323,
+          "output_tokens": 93,
+          "total_tokens": 416
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_qmlZ9hRlzCD82iggZcXt7N9U",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Harrowfield\", \"field\": \"2025 household water tariff, 2025 population/residents, 2025 household water consumption\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 household water tariff, 2025 population/residents, 2025 household water consumption"
+            }
+          },
+          {
+            "id": "call_oDzftu2nXO6pg25CLhzENwPd",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"2025 household water tariff, 2025 population/residents, 2025 household water consumption\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "2025 household water tariff, 2025 population/residents, 2025 household water consumption"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "usage": {
+          "input_tokens": 495,
+          "output_tokens": 145,
+          "total_tokens": 640
+        },
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_Dsj0nEBjxpPCr70Bg8J9Bc3X",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Harrowfield\", \"field\": \"household water tariff\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "household water tariff"
+            }
+          },
+          {
+            "id": "call_SV82OO1GeOktjWy6zOBUNvO7",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Harrowfield\", \"field\": \"population\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "population"
+            }
+          },
+          {
+            "id": "call_P5XK1oJ9KetYMPEotEQukHU5",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Harrowfield\", \"field\": \"household water consumption\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "household water consumption"
+            }
+          },
+          {
+            "id": "call_WQ6WPoegfBsxu9r5etteYSAi",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"household water tariff\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "household water tariff"
+            }
+          },
+          {
+            "id": "call_YjXeXkeJtbelw0HURBWWkZOF",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"population\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "population"
+            }
+          },
+          {
+            "id": "call_4M6mQLGDyRYfkFmXlyOqbJzd",
+            "name": "lookup",
+            "arguments": "{\"district\": \"Ossbridge\", \"field\": \"household water consumption\"}",
+            "result": {
+              "error": "Field not found",
+              "field": "household water consumption"
+            }
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "usage": {
+          "input_tokens": 751,
+          "output_tokens": 57,
+          "total_tokens": 808
+        },
+        "content": "{\"answer\":\"no\",\"value\":0,\"unit\":\"tenge per resident\",\"sources\":[],\"reason\":\"The provided 2025 corpus contains no retrievable data for the household water tariffs, resident counts, or household water consumption of Harrowfield or Ossbridge.\"}",
+        "tool_calls": []
+      }
+    ],
+    "strategy": "S3"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "S2": {
+    "runs": 40,
+    "accuracy_both": 0.925,
+    "total_input_tokens": 447600,
+    "total_output_tokens": 109398,
+    "total_tokens": 556998,
+    "seconds": 965.4
+  }
+}

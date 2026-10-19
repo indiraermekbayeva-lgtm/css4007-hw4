@@ -1,7 +1,10 @@
 # HW4 — submission
 
-**AI assistance:** <!-- what you used, and for what. "None" is an answer too. -->
+**AI assistance:** 
 
+I used ChatGPT to help plan the solution,
+write and debug Python code, prepare tests, and organize
+the report. I ran the experiments and checked the results.
 ---
 
 ## Part A — Plan on paper (Easy)
@@ -258,7 +261,11 @@ This approach is easier to understand, test, and maintain. It also helps me iden
 
 ### What I changed from Part A while coding
 
-<!-- what changed in your plan, and why. "None" is an answer too. -->
+I kept my original plan with two tools: `lookup` and `calculate`.
+
+While coding, I added input validation and error handling to make the tools safer. The `lookup` tool uses valid 2025 data and applies corrections. The `calculate` tool uses Python's `ast` module for safe calculations.
+
+I also added a limit of 12 rounds for tool calls and saved the results and logs in the `outputs/` folder.
 
 ### B2 — Tests
 
@@ -384,9 +391,7 @@ An answer is correct only if both the district name and the numerical value matc
 The normal description produced no tool errors in these five questions.
 The vague description produced 28 tool errors.
 
-For example, in Q-01, the model requested "2025 population"
-instead of the valid field "population". The tool returned
-"Field not found".
+For example, in Q-01, the model requested "2025 population" instead of the valid field "population". The tool returned "Field not found".
 
 The vague description caused more tool errors and incorrect answers.
 Q-09 remained correct, but the model needed more tool calls.
@@ -396,14 +401,11 @@ This shows that clear tool descriptions help the model use tools correctly.
 
 **S1 — Q-20 (slowest question)**
 
-S1 answered all questions correctly in run 1, so I chose its
-slowest question, Q-20.
+S1 answered all questions correctly in run 1, so I chose its slowest question, Q-20.
 The model compared the budget per resident of three districts.
 It answered Ashgrove with a difference of 2993.342836 tenge.
-The answer was correct after rounding, but it took 17.653 seconds
-and used 3376 tokens.
-The question took longer because it required several comparisons
-and calculations.
+The answer was correct after rounding, but it took 17.653 seconds and used 3376 tokens.
+The question took longer because it required several comparisons and calculations.
 
 ```text
 Answer: Ashgrove
@@ -414,12 +416,9 @@ Total tokens: 3376
 
 **S2 — Q-05 (voting failure)**
 
-The correct answer was Coldharbour, 14235 tenge per resident,
-but S2 returned 4235.314.
-The five trials gave different values: 4235.314, 14235.314487,
-14235.314486, 4235.31, and 14235.314486.
-Because the voting system treated these as different answers,
-each received one vote. It selected the first, incorrect value.
+The correct answer was Coldharbour, 14235 tenge per resident,but S2 returned 4235.314.
+The five trials gave different values: 4235.314, 14235.314487, 14235.314486, 4235.31, and 14235.314486.
+Because the voting system treated these as different answers, each received one vote. It selected the first, incorrect value.
 This shows that voting does not always fix mistakes.
 
 ```text
@@ -435,16 +434,11 @@ Correct answer: Coldharbour, 14235
 
 **S3 — Q-17 (wrong formula)**
 
-The correct answer was Harrowfield, 884 tenge per resident,
-but S3 returned 75075.28.
-The model looked up budget, water, and population data, then
-used budget values instead of the water tariff. The calculator
-evaluated the formula correctly, but the formula was wrong.
-This shows that a calculator cannot fix incorrect data selection
-or a wrong formula.
+The correct answer was Harrowfield, 884 tenge per resident, but S3 returned 75075.28.
+The model looked up budget, water, and population data, then used budget values instead of the water tariff. The calculator evaluated the formula correctly, but the formula was wrong.
+This shows that a calculator cannot fix incorrect data selection or a wrong formula.
 S3 needed several rounds to retrieve data, calculate, and answer.
-Later rounds include earlier messages and tool results, so input
-tokens can increase. More rounds can mean more time and cost.
+Later rounds include earlier messages and tool results, so input tokens can increase. More rounds can mean more time and cost.
 
 ```text
 Correct answer: Harrowfield, 884
@@ -455,13 +449,11 @@ Calculator expression:
 - 9284.5*1000000/(3862*1000000/52904)
 ```
 
-The calculator evaluated the expression, but the model
-selected the wrong values for the calculation.
+The calculator evaluated the expression, but the model selected the wrong values for the calculation.
 
 ### C3 — Which strategy I would use, and what would change it
 
-I would choose S1 (direct) for this task because it had the
-highest accuracy and reasonable running time.
+I would choose S1 (direct) for this task because it had the highest accuracy and reasonable running time.
 
 | Strategy | Accuracy (2 runs) | Avg. tokens per run | Avg. time per run |
 |---|---:|---:|---:|
@@ -471,27 +463,19 @@ highest accuracy and reasonable running time.
 
 S1 was the most accurate strategy.
 S2 used almost five times more tokens than S1 and was much slower.
-S3 was the fastest and used the fewest tokens, but it made
-more mistakes.
+S3 was the fastest and used the fewest tokens, but it made more mistakes.
 
-I would not choose S2 as my default because voting did not
-always fix mistakes. I would not choose S3 as my default
-because it sometimes selected the wrong data or formula.
+I would not choose S2 as my default because voting did not always fix mistakes. I would not choose S3 as my default because it sometimes selected the wrong data or formula.
 
 My choice would change in these situations:
 
 1. **Very limited time:** I would choose S3 because it was fastest.
 
-2. **A much larger corpus:** I would consider S3 because it can
-   retrieve relevant facts instead of including the entire corpus
-   in every prompt. I would test its accuracy first.
+2. **A much larger corpus:** I would consider S3 because it can retrieve relevant facts instead of including the entire corpus in every prompt. I would test its accuracy first.
 
-3. **A very small token budget:** I would consider S3 because
-   it used the fewest tokens, but I would check its answers
-   carefully.
+3. **A very small token budget:** I would consider S3 because it used the fewest tokens, but I would check its answers carefully.
 
-The best strategy depends on accuracy, time, token usage,
-and the type of task.
+The best strategy depends on accuracy, time, token usage, and the type of task.
 
 ### C4 — How sure I can be
 
@@ -503,24 +487,15 @@ S3 scored 17/20 in both runs.
 
 S1 changed by 1 correct answer (5 percentage points).
 S2 changed by 3 correct answers (15 percentage points).
-S3 had the same accuracy in both runs, but some individual
-answers were different.
+S3 had the same accuracy in both runs, but some individual answers were different.
 
-Across both runs, S1 achieved 97.5% accuracy, S2 achieved
-92.5%, and S3 achieved 85%.
+Across both runs, S1 achieved 97.5% accuracy, S2 achieved 92.5%, and S3 achieved 85%.
 
-The difference between the two best strategies, S1 and S2,
-was only 5 percentage points. This was smaller than S2's
-15-percentage-point change between runs.
+The difference between the two best strategies, S1 and S2, was only 5 percentage points. This was smaller than S2's 15-percentage-point change between runs.
 
-Therefore, I cannot be completely sure that S1 is always
-better than S2. The results suggest that S1 is a good choice,
-but two runs with 20 questions are not enough for a strong
-conclusion.
+Therefore, I cannot be completely sure that S1 is always better than S2. The results suggest that S1 is a good choice, but two runs with 20 questions are not enough for a strong conclusion.
 
-I would test at least 100 different questions per strategy
-and repeat the experiments several times. This would help
-me understand whether the differences are consistent.
+I would test at least 100 different questions per strategy and repeat the experiments several times. This would help me understand whether the differences are consistent.
 
 ### Final questions
 

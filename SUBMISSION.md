@@ -5,6 +5,7 @@
 I used ChatGPT to help plan the solution,
 write and debug Python code, prepare tests, and organize
 the report. I ran the experiments and checked the results.
+
 ---
 
 ## Part A — Plan on paper (Easy)

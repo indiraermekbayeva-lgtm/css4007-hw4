@@ -34,7 +34,7 @@ def test_archived_not_used():
 def test_lookup_reject(district,field):
     assert 'error' in lookup(district,field)
 def test_calculate_required_number():
-    assert calculate('48317 * 1.0947')['result'] == pytest.approx(52892.7299)
+    assert calculate('48317 * 1.0947')['result'] == pytest.approx(52892.6199)
 
 
 def test_similar_district_names():

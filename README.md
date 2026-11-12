@@ -1,3 +1,122 @@
+
+# 🤖 AI Reasoning & Tool Integration
+
+### Python · OpenAI API · Tool Calling · pytest
+
+A university project developed as part of the **Artificial Intelligence (CSS-4007)** course at **Narxoz University**.
+
+The project explores how AI models solve complex questions using different reasoning strategies and external tools.
+
+---
+
+## 👩‍💻 Project Overview
+
+The main goal of this project is to compare three AI problem-solving strategies and evaluate their accuracy, efficiency, and cost.
+
+The project focuses on:
+
+- Building custom tools for an AI model.
+- Retrieving information from structured documents.
+- Performing mathematical calculations.
+- Comparing AI reasoning strategies.
+- Evaluating model performance.
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Programming | Python |
+| AI Integration | OpenAI API |
+| Data Processing | JSON, JSONL |
+| Testing | pytest |
+| Version Control | Git, GitHub |
+
+---
+
+## ⚙️ Project Components
+
+### 1. Custom Tools
+
+**Lookup Tool**
+- Retrieves information from documents.
+- Handles missing or incorrect data.
+- Identifies relevant sources.
+
+**Calculate Tool**
+- Performs mathematical calculations.
+- Uses Python AST for safer expression processing.
+- Handles invalid expressions and calculation errors.
+
+### 2. AI Reasoning Strategies
+
+Three strategies are compared:
+
+| Strategy | Description |
+|---|---|
+| S1 — Direct | Answers questions using provided documents |
+| S2 — Think & Vote | Generates multiple answers and selects the most common |
+| S3 — Tools | Uses external tools to retrieve data and calculate results |
+
+### 3. Performance Evaluation
+
+The experiment evaluates:
+
+- Answer accuracy
+- Execution time
+- Token usage
+- API cost
+- Tool effectiveness
+
+---
+
+## 🔄 Workflow
+
+```mermaid
+flowchart TD
+    A[Input Questions] --> B{Select Strategy}
+    B --> C[S1: Direct]
+    B --> D[S2: Think and Vote]
+    B --> E[S3: Tool Calling]
+    C --> F[Collect Results]
+    D --> F
+    E --> F
+    F --> G[Evaluate Performance]
+    G --> H[Compare Strategies]
+```
+
+---
+
+## 🎯 Skills Demonstrated
+
+- Python programming
+- AI tool integration
+- Data processing
+- API interaction
+- Automated testing
+- Performance evaluation
+- Analytical thinking
+- Problem-solving
+
+---
+
+## 📚 Academic Information
+
+**University:** Narxoz University  
+**Course:** CSS-4007 — Artificial Intelligence  
+**Assignment:** Homework 4 — Reasoning and Tools  
+**Type:** Individual University Assignment
+
+---
+
+## 📄 Original Assignment
+
+The original homework instructions and requirements are provided below.
+
+---
+
+
 # HW4 — Three routes to a hard answer: decompose, choose, justify
 
 *Build tools for an LLM, then test if they were worth it.*
